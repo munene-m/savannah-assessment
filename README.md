@@ -1,45 +1,82 @@
-# savannah-assessment
+# User Albums Viewer
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a Vue.js application that interacts with the JSONPlaceholder API to display users and their albums. The application includes authentication, a landing page, and multiple pages for listing and viewing user data and albums.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Landing Page:** A brief explanation of what the application does.
+- **Authentication:** A login page that uses Google authentication.
+- **Home Page:** Lists all users and the number of albums each user has.
+- **User Page:** Displays detailed information about a user and lists their albums.
+- **Album Page:** Shows detailed information about an album and lists its photos.
+- **Photo Page:** Displays a photo and allows the user to edit its title.
 
-## Type Support for `.vue` Imports in TS
+## Screens and Pages
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+1. **Landing Page:**
 
-## Customize configuration
+   - Accessible to all visitors.
+   - Brief explanation of the application’s purpose.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+2. **Login Page:**
 
-## Project Setup
+   - Uses an authentication provider.
+   - Optionally combined with the landing page.
 
-```sh
-npm install
-```
+3. **Home Page:**
 
-### Compile and Hot-Reload for Development
+   - Lists all users.
+   - Shows the number of albums for each user.
 
-```sh
-npm run dev
-```
+4. **User Page:**
 
-### Type-Check, Compile and Minify for Production
+   - Displays user details.
+   - Lists the user's albums.
 
-```sh
-npm run build
-```
+5. **Album Page:**
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+   - Shows album details.
+   - Lists photos in the album.
 
-```sh
-npm run test:unit
-```
+6. **Photo Page:**
+   - Displays a photo.
+   - Allows title editing.
 
-### Lint with [ESLint](https://eslint.org/)
+## Getting Started
 
-```sh
-npm run lint
-```
+### Prerequisites
+
+- Node.js
+- npm (Node Package Manager)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/munene-m/savannah-assessment.git
+   ```
+
+2. Navigate to the cloned project:
+
+   ```
+   cd savannah-assessment
+   ```
+
+3. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```
+   npm run dev
+   ```
+
+5. To run unit tests:
+
+   ```
+   npm run test
+   ```
