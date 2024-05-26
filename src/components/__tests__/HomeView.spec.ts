@@ -1,19 +1,34 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import axios from 'axios'
+import axios, { type AxiosResponse } from 'axios'
 import { mount, flushPromises } from '@vue/test-utils'
 import { createWebHistory, createRouter } from 'vue-router'
-import HomeView from '../../views/HomeView.vue'
+import HomeView from '@/views/HomeView.vue'
 import UserView from '@/views/UserView.vue'
+import type { IAlbum } from '@/utils/user'
 
-const mockUsers = [
+interface User {
+  id: number
+  name: string
+  albumCount: number
+}
+
+const mockUsers: User[] = [
   { id: 1, name: 'Leanne Graham', albumCount: 2 },
   { id: 2, name: 'Ervin Howell', albumCount: 1 }
 ]
-const mockAlbums = [
+const mockAlbums: IAlbum[] = [
   { userId: 1, id: 1, title: 'Album 1' },
   { userId: 1, id: 2, title: 'Album 2' },
   { userId: 2, id: 3, title: 'Album 3' }
 ]
+
+const mockAxiosResponse = (data: any): AxiosResponse => ({
+  data,
+  status: 200,
+  statusText: 'OK',
+  headers: {},
+  config: {}
+})
 
 vi.mock('axios')
 // Mock implementation for Firebase Auth check
@@ -30,12 +45,14 @@ vi.mock('firebase/app', () => {
 
 describe('HomePage', () => {
   beforeEach(() => {
-    vi.mocked(axios.get).mockImplementation((url: string) => {
+    vi.mocked(axios.get).mockImplementation((url: string): Promise<AxiosResponse<any>> => {
       if (url.includes('/users')) {
-        return Promise.resolve({ data: mockUsers })
+        return Promise.resolve(mockAxiosResponse(mockUsers))
       } else if (url.includes('/albums')) {
-        return Promise.resolve({ data: mockAlbums })
+        return Promise.resolve(mockAxiosResponse(mockAlbums))
       }
+
+      return Promise.reject(new Error('not found'))
     })
   })
   it('renders properly', () => {
