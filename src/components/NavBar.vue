@@ -7,6 +7,7 @@ import MenuClose from './icons/MenuClose.vue'
 
 import { RouterLink } from 'vue-router'
 import { onAuthStateChanged, getAuth, signOut } from 'firebase/auth'
+import LogoutIcon from './icons/LogoutIcon.vue'
 
 const router = useRouter()
 const showMenu = ref(false)
@@ -36,9 +37,11 @@ function toggleMenuIcon() {
 </script>
 
 <template>
-  <nav class="flex items-center justify-between py-3 px-2 bg-light mx-4 rounded-md shadow-md my-4">
+  <nav
+    class="flex items-center justify-between py-3 px-2 bg-light mx-4 rounded-md bg-primary text-white shadow-md my-4"
+  >
     <div class="flex items-center gap-6">
-      <p>Album-app</p>
+      <RouterLink to="/"><p>Album-app</p></RouterLink>
       <div class="hidden md:flex">
         <ul class="flex items-center justify-center gap-x-5">
           <RouterLink to="/home" aria-current="page">Home</RouterLink>
@@ -54,9 +57,12 @@ function toggleMenuIcon() {
         ><router-link to="/signup">Sign up</router-link></custom-button
       >
 
-      <custom-button v-if="isLoggedIn" @click="handleSignout" class="bg-primary text-white"
-        >Log out</custom-button
-      >
+      <custom-button
+        v-if="isLoggedIn"
+        @click="handleSignout"
+        class="bg-primary text-white flex items-center gap-2"
+        >Log out<LogoutIcon
+      /></custom-button>
     </div>
     <menu-icon class="md:hidden flex" @click="toggleMenuIcon" v-if="!showMenu" />
     <menu-close v-if="showMenu" @click="toggleMenuIcon" class="md:hidden flex" />
@@ -74,9 +80,12 @@ function toggleMenuIcon() {
       <custom-button v-if="!isLoggedIn" class="bg-primary text-white w-full"
         ><RouterLink to="/signup">Sign up</RouterLink></custom-button
       >
-      <custom-button @click="handleSignout" v-if="isLoggedIn" class="bg-primary text-white w-full"
-        >Log out</custom-button
-      >
+      <custom-button
+        @click="handleSignout"
+        v-if="isLoggedIn"
+        class="bg-primary text-white w-full flex items-center gap-2"
+        >Log out<LogoutIcon
+      /></custom-button>
     </ul>
   </div>
 </template>
