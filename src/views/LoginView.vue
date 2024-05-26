@@ -7,7 +7,7 @@ const router = useRouter()
 const signinWithGoogle = async () => {
   const provider = new GoogleAuthProvider()
   signInWithPopup(getAuth(), provider)
-    .then((result) => {
+    .then(() => {
       router.push('/home')
     })
     .catch((error) => {
