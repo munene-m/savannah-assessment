@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        secondary: '#f2b705'
+        // secondary: '#f2b705'
       }
     }
   },
   plugins: [daisyui],
   // plugins: [require("daisyui")],
   daisyui: {
-    themes: ['light']
+    themes: ['lofi']
   }
 }
