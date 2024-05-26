@@ -78,5 +78,5 @@ This is a Vue.js application that interacts with the JSONPlaceholder API to disp
 5. To run unit tests:
 
    ```
-   npm run test
+   npm run test:unit
    ```
