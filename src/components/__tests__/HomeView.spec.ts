@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import axios, { type AxiosResponse } from 'axios'
+import axios, { type AxiosResponse, type InternalAxiosRequestConfig } from 'axios'
 import { mount, flushPromises } from '@vue/test-utils'
 import { createWebHistory, createRouter } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
@@ -27,7 +27,9 @@ const mockAxiosResponse = (data: any): AxiosResponse => ({
   status: 200,
   statusText: 'OK',
   headers: {},
-  config: {}
+  config: {
+    headers: {}
+  } as InternalAxiosRequestConfig
 })
 
 vi.mock('axios')
