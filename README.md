@@ -20,25 +20,28 @@ This is a Vue.js application that interacts with the JSONPlaceholder API to disp
 
 2. **Login Page:**
 
-   - Uses an authentication provider.
-   - Optionally combined with the landing page.
+   - Uses an authentication provider (Google).
 
-3. **Home Page:**
+3. **Signup page**
+
+   - Uses an authentication provier (Google).
+
+4. **Home Page:**
 
    - Lists all users.
    - Shows the number of albums for each user.
 
-4. **User Page:**
+5. **User Page:**
 
    - Displays user details.
    - Lists the user's albums.
 
-5. **Album Page:**
+6. **Album Page:**
 
    - Shows album details.
    - Lists photos in the album.
 
-6. **Photo Page:**
+7. **Photo Page:**
    - Displays a photo.
    - Allows title editing.
 
