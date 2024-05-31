@@ -30,7 +30,7 @@ function getUser(id: number) {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center" v-if="users">
+  <div class="flex flex-col items-center justify-center pt-24" v-if="users">
     <h1 class="text-2xl font-bold">Number of albums per user</h1>
     <ul class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-3">
       <li

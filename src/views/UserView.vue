@@ -32,7 +32,7 @@ function getAlbum(id) {
 
 <template>
   <main>
-    <div v-if="user" class="flex items-center flex-col px-4 my-4">
+    <div v-if="user" class="flex items-center flex-col px-4 my-4 pt-24">
       <p>List of {{ user.name }}'s albums:</p>
       <ul class="mt-4">
         <li
