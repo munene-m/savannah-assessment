@@ -35,7 +35,7 @@ function getUser(id: number) {
     <ul class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-3">
       <li
         @click="getUser(user.id)"
-        class="my-2 rounded-md border border-base-content p-2 cursor-pointer"
+        class="my-2 rounded-md border border-base-content p-2 cursor-pointer bg-slate-200"
         v-for="user in users"
         :key="user.id"
       >

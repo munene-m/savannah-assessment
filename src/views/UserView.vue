@@ -34,10 +34,10 @@ function getAlbum(id) {
   <main>
     <div v-if="user" class="flex items-center flex-col px-4 mb-4 pt-24">
       <h1 class="text-xl mx-2 text-center font-bold">List of {{ user.name }}'s albums:</h1>
-      <ul class="mt-4">
+      <ul class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-3">
         <li
           @click="getAlbum(album.id)"
-          class="border border-base-content my-2 p-2 rounded-md cursor-pointer"
+          class="border border-base-content mb-2 p-2 rounded-md cursor-pointer bg-slate-200"
           v-for="album in userAlbums"
           :key="album.id"
         >
