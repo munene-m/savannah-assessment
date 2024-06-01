@@ -38,13 +38,14 @@ function toggleMenuIcon() {
 
 <template>
   <nav
-    class="flex items-center justify-between py-3 px-2 bg-light mx-4 rounded-md bg-primary text-white shadow-md my-4"
+    class="flex items-center justify-between py-3 px-2 bg-light rounded-md bg-primary text-white shadow-md m-2 fixed left-0 right-0"
   >
     <div class="flex items-center gap-6">
       <RouterLink to="/"><p>Album-app</p></RouterLink>
       <div class="hidden md:flex">
         <ul class="flex items-center justify-center gap-x-5">
           <RouterLink to="/home" aria-current="page">Home</RouterLink>
+          <RouterLink to="/photo">Photo</RouterLink>
         </ul>
       </div>
     </div>
@@ -69,21 +70,23 @@ function toggleMenuIcon() {
   </nav>
   <div
     v-if="showMenu"
-    class="bg-white w-fit px-6 py-2 rounded-md shadow-md absolute right-4 md:hidden z-50"
+    class="bg-white w-full px-6 py-2 rounded-md shadow-md fixed md:hidden z-50 top-16"
   >
     <ul class="flex flex-col items-center justify-center gap-y-3">
-      <RouterLink to="/home" aria-current="page">Home</RouterLink>
+      <RouterLink to="/home" @click="toggleMenuIcon" aria-current="page">Home</RouterLink>
 
-      <custom-button v-if="!isLoggedIn" class="bg-white text-black w-full"
+      <custom-button v-if="!isLoggedIn" @click="toggleMenuIcon" class="bg-white text-black w-full"
         ><RouterLink to="/login">Log in</RouterLink></custom-button
       >
-      <custom-button v-if="!isLoggedIn" class="bg-primary text-white w-full"
+      <custom-button v-if="!isLoggedIn" @click="toggleMenuIcon" class="bg-primary text-white w-full"
         ><RouterLink to="/signup">Sign up</RouterLink></custom-button
       >
+      <RouterLink to="/photo" @click="toggleMenuIcon">Photo</RouterLink>
+
       <custom-button
         @click="handleSignout"
         v-if="isLoggedIn"
-        class="bg-primary text-white w-full flex items-center gap-2"
+        class="bg-primary text-white w-full flex items-center justify-center gap-2"
         >Log out<LogoutIcon
       /></custom-button>
     </ul>

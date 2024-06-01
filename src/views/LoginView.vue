@@ -27,9 +27,9 @@ const signinWithGoogle = async () => {
         ><img src="../assets/googleIcon.png" class="w-6" alt="Google Icon" />Sign in with
         Google</custom-button
       >
-      <p class="mb-2 flex items-center justify-center mt-1 cursor-pointer">
+      <p class="mb-2 flex items-center flex-wrap justify-center mt-1 cursor-pointer">
         Don't have an account?
-        <span @click="$router.push('/signup')" class="ml-2 text-info">Create an account</span>
+        <span @click="$router.push('/signup')" class="ml-2 text-info">Create account</span>
       </p>
     </div>
   </main>

@@ -27,9 +27,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="container mx-auto py-8">
+  <main class="container mx-auto pb-8 pt-24">
     <div v-if="album" class="px-4 my-2">
-      <p class="text-center text-xl font-semibold mb-4">List of {{ album.title }}'s photos:</p>
+      <h1 class="text-xl mx-2 text-center font-bold">List of {{ album.title }}'s photos:</h1>
 
       <div
         class="grid grid-cols-1 sm:grid-cols-2 justify-items-center lg:grid-cols-3 xl:grid-cols-4 gap-4 m-auto"
@@ -51,7 +51,7 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <div v-else class="flex items-center flex-col justify-center mt-10 gap-2">
+    <div v-else class="flex items-center flex-col justify-center mt-10 gap-2 pt-24">
       <p class="loading loading-dots loading-md text-center"></p>
       <span>Loading album data...</span>
     </div>

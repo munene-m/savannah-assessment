@@ -49,11 +49,9 @@ describe('LandingPage', () => {
 
     expect(router.currentRoute.value.fullPath).toBe('/signup')
 
-    // Check if ArrowIcon is displayed within the button
     const arrowIcon = wrapper.findComponent(ArrowIcon)
     expect(arrowIcon.exists()).toBe(true)
 
-    // Check if footer is displayed
     expect(wrapper.find('footer').text()).toBe('© 2024 Album Showcase')
   })
 })

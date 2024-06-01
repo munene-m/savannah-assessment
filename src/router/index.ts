@@ -59,6 +59,15 @@ const router = createRouter({
         title: 'Album page'
       },
       props: true
+    },
+    {
+      path: '/photo',
+      name: 'photo',
+      component: () => import('../views/PhotoView.vue'),
+      meta: {
+        requireAuth: true,
+        title: 'Photo page'
+      }
     }
   ]
 })
@@ -72,7 +81,7 @@ const dynamicTitleGuard = (
   if (typeof title === 'string') {
     document.title = title
   } else {
-    document.title = 'Digitrada - Your Stellar SEP-24 Powered Cross-Border Money Transfer Service'
+    document.title = 'Album showcase'
   }
   next()
 }
