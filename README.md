@@ -1,11 +1,11 @@
 # User Albums Viewer
 
-This is a Vue.js application that interacts with the JSONPlaceholder API to display users and their albums. The application includes authentication, a landing page, and multiple pages for listing and viewing user data and albums.
+This is a Vue.js application that interacts with the JSONPlaceholder API to display users and their albums. The application includes social authentication, a landing page, and multiple pages for listing and viewing user data and albums.
 
 ## Features
 
 - **Landing Page:** A brief explanation of what the application does.
-- **Authentication:** A login page that uses Google authentication.
+- **Authentication:** A signup and login page that uses Google authentication.
 - **Home Page:** Lists all users and the number of albums each user has.
 - **User Page:** Displays detailed information about a user and lists their albums.
 - **Album Page:** Shows detailed information about an album and lists its photos.
@@ -20,11 +20,11 @@ This is a Vue.js application that interacts with the JSONPlaceholder API to disp
 
 2. **Login Page:**
 
-   - Uses an authentication provider (Google).
+   - Uses an authentication provider (Google)
 
 3. **Signup page**
 
-   - Uses an authentication provier (Google).
+   - Uses an authentication provider (Google)
 
 4. **Home Page:**
 
