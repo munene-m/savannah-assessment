@@ -30,8 +30,8 @@ function getUser(id: number) {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center pt-24" v-if="users">
-    <h1 class="text-2xl font-bold">Number of albums per user</h1>
+  <div class="flex flex-col items-center justify-center pt-24 mb-4" v-if="users">
+    <h1 class="text-xl mx-2 text-center font-bold">Number of albums per user</h1>
     <ul class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-3">
       <li
         @click="getUser(user.id)"
