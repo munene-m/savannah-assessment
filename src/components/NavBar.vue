@@ -74,6 +74,7 @@ function toggleMenuIcon() {
   >
     <ul class="flex flex-col items-center justify-center gap-y-3">
       <RouterLink to="/home" @click="toggleMenuIcon" aria-current="page">Home</RouterLink>
+      <RouterLink to="/photo" @click="toggleMenuIcon">Photo</RouterLink>
 
       <custom-button v-if="!isLoggedIn" @click="toggleMenuIcon" class="bg-white text-black w-full"
         ><RouterLink to="/login">Log in</RouterLink></custom-button
@@ -81,7 +82,6 @@ function toggleMenuIcon() {
       <custom-button v-if="!isLoggedIn" @click="toggleMenuIcon" class="bg-primary text-white w-full"
         ><RouterLink to="/signup">Sign up</RouterLink></custom-button
       >
-      <RouterLink to="/photo" @click="toggleMenuIcon">Photo</RouterLink>
 
       <custom-button
         @click="handleSignout"
