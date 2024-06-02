@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import CustomButton from './CustomButton.vue'
 import MenuIcon from './icons/MenuIcon.vue'
 import MenuClose from './icons/MenuClose.vue'
-
+import MobileMenu from './MobileMenu.vue'
 import { RouterLink } from 'vue-router'
 import { onAuthStateChanged, getAuth, signOut } from 'firebase/auth'
 import LogoutIcon from './icons/LogoutIcon.vue'
@@ -29,6 +29,7 @@ const handleSignout = () => {
   signOut(auth).then(() => {
     router.push('/')
   })
+  showMenu.value = !showMenu.value
 }
 
 function toggleMenuIcon() {
@@ -44,8 +45,8 @@ function toggleMenuIcon() {
       <RouterLink to="/"><p>Album-app</p></RouterLink>
       <div class="hidden md:flex">
         <ul class="flex items-center justify-center gap-x-5">
-          <RouterLink to="/home" aria-current="page">Home</RouterLink>
-          <RouterLink to="/photo">Photo</RouterLink>
+          <li><RouterLink to="/home" aria-current="page">Home</RouterLink></li>
+          <li><RouterLink to="/photo">Photo</RouterLink></li>
         </ul>
       </div>
     </div>
@@ -68,29 +69,12 @@ function toggleMenuIcon() {
     <menu-icon class="md:hidden flex" @click="toggleMenuIcon" v-if="!showMenu" />
     <menu-close v-if="showMenu" @click="toggleMenuIcon" class="md:hidden flex" />
   </nav>
-  <div
+  <mobile-menu
+    :isLoggedIn="isLoggedIn"
+    @sign-out="handleSignout"
     v-if="showMenu"
-    class="bg-white w-full px-6 py-2 rounded-md shadow-md fixed md:hidden z-50 top-16"
-  >
-    <ul class="flex flex-col items-center justify-center gap-y-3">
-      <RouterLink to="/home" @click="toggleMenuIcon" aria-current="page">Home</RouterLink>
-
-      <custom-button v-if="!isLoggedIn" @click="toggleMenuIcon" class="bg-white text-black w-full"
-        ><RouterLink to="/login">Log in</RouterLink></custom-button
-      >
-      <custom-button v-if="!isLoggedIn" @click="toggleMenuIcon" class="bg-primary text-white w-full"
-        ><RouterLink to="/signup">Sign up</RouterLink></custom-button
-      >
-      <RouterLink to="/photo" @click="toggleMenuIcon">Photo</RouterLink>
-
-      <custom-button
-        @click="handleSignout"
-        v-if="isLoggedIn"
-        class="bg-primary text-white w-full flex items-center justify-center gap-2"
-        >Log out<LogoutIcon
-      /></custom-button>
-    </ul>
-  </div>
+    @toggle-menu="toggleMenuIcon"
+  />
 </template>
 
 <style scoped>

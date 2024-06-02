@@ -72,7 +72,7 @@ This is a Vue.js application that interacts with the JSONPlaceholder API to disp
    npm install
    ```
 
-4. Start the development server:
+4. Start the development server to view a demo of the application:
 
    ```
    npm run dev
