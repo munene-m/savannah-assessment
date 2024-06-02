@@ -23,16 +23,25 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Determine commit range
+        id: commit_range
+        run: |
+          # Fetch all history for all branches and tags
+          git fetch --unshallow
+          # Get the range of commits to lint
+          echo "COMMIT_RANGE=$(git rev-list --count HEAD)" >> $GITHUB_ENV
+
+      - name: Run Commit Lint
+        if: env.COMMIT_RANGE > 0
+        run: |
+          # Check commit messages for the last $COMMIT_RANGE commits
+          npx commitlint --from=HEAD~$COMMIT_RANGE --to=HEAD
+
       - name: Run ESLint
         run: npm run lint
 
-      - name: Run CSS Linting
+      - name: Run CSS Lint
         run: npm run lint:css
-
-      - name: Run Commit Lint
-        run: |
-          # Check commit messages from the last 10 commits
-          npx commitlint --from=HEAD~10 --to=HEAD
 
       - name: Run unit tests
         run: npm run test:unit
