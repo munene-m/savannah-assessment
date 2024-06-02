@@ -30,7 +30,7 @@ const signupWithGoogle = async () => {
       >
       <p class="mb-2 flex items-center justify-center mt-1 cursor-pointer">
         Already have an account?
-        <span @click="$router.push('/login')" class="text-info ml-2">Log in</span>
+        <span @click="$router.push('/login')" class="text-blue-700 underline ml-2">Log in</span>
       </p>
     </div>
   </main>

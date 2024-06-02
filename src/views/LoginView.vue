@@ -29,7 +29,9 @@ const signinWithGoogle = async () => {
       >
       <p class="mb-2 flex items-center flex-wrap justify-center mt-1 cursor-pointer">
         Don't have an account?
-        <span @click="$router.push('/signup')" class="ml-2 text-info">Create account</span>
+        <span @click="$router.push('/signup')" class="ml-2 text-blue-700 underline"
+          >Create account</span
+        >
       </p>
     </div>
   </main>
