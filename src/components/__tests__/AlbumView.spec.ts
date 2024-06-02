@@ -49,14 +49,14 @@ describe('Album view page', () => {
     })
   })
 
-  it('shows album information and its photos', async () => {
+  it('shows album information and its photos and its details', async () => {
     const wrapper = mount(AlbumView, {
       props: { id: '1' }
     })
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain("List of Album 1's photos:")
+    expect(wrapper.text()).toContain("List of Album 1's photos and its details:")
 
     const photoElements = wrapper.findAll('img[alt="Thumbnail"]')
     expect(photoElements.length).toBe(mockPhotosData.length)
