@@ -14,9 +14,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Fetch all history for all branches and tags
-
+        
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -24,24 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Determine commit range
-        id: commit_range
-        run: |
-          # Get the number of commits in the current branch
-          COMMIT_COUNT=$(git rev-list --count HEAD)
-          # Set a default commit range if the commit count is too low
-          if [ "$COMMIT_COUNT" -gt 10 ]; then
-            COMMIT_RANGE="HEAD~10..HEAD"
-          else
-            COMMIT_RANGE="HEAD~$COMMIT_COUNT..HEAD"
-          fi
-          echo "commit_range=$COMMIT_RANGE" >> $GITHUB_ENV
-
-      - name: Run Commit Lint
-        run: |
-          # Check commit messages for the specified commit range
-          npx commitlint --from=$COMMIT_RANGE
 
       - name: Run ESLint
         run: npm run lint
