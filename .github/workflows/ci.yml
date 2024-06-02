@@ -26,5 +26,11 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
+      - name: Run CSS Linting
+        run: npm run lint:css
+
+      - name: Run Commit Linting
+        run: npm run lint:commits
+
       - name: Run unit tests
         run: npm run test:unit
